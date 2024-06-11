@@ -1,0 +1,13 @@
+<div class="container pt-3 bg-blur tw-border-2 tw-rounded-full tw-border-white tw-border-solid">
+  <p-steps [model]="items" [readonly]="false" styleClass="bg-w"></p-steps>
+</div>
+
+<div class="container-fluid mt-5">
+  <router-outlet></router-outlet>
+  <p-toast position="top-right" [breakpoints]="{'576px': {width: '100%', right: '0', left: '0'}}"></p-toast>
+</div>
+
+
+<div class="blurry-background">
+  <div class="blurry-overlay"></div>
+</div>

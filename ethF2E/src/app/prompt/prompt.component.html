@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="container">
+    <div class="row space">
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="row w-100 justify-content-center align-items-center">
+          <div class="col-8">
+          <span class="p-float-label">
+            <input pInputText id="username" class="p-inputtext-lg w-100" formControlName="prompt"/>
+            <label for="username">請輸入任何文字敘述或描述。</label>
+          </span>
+          </div>
+          <div class="col-2">
+            <p-button type="submit" label="確認" styleClass="w-100" [loading]="loading"></p-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

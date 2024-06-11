@@ -1,0 +1,81 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg order-1">
+        <div class="container">
+          <p-panel header="From:">
+            <div class="row flex-column space">
+              <div class="col">
+                <div class="row h-100">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex flex-column gap-2 w-80">
+                      <label for="networkFrom">Network:</label>
+                      <input pInputText id="networkFrom" formControlName="networkFrom"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row h-100">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex flex-column gap-2 w-80">
+                      <label for="addressFrom">Address:</label>
+                      <input pInputText id="addressFrom" formControlName="addressFrom"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-panel>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 order-last order-lg-2">
+        <div class="container">
+          <div class="row space">
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="row w-100 align-items-center">
+                <p-panel header="Amount:" class="my-5">
+                  <div class="row h-100">
+                    <div class="d-flex justify-content-center align-items-center">
+                      <input pInputText class="w-100" id="amount" formControlName="amount"/>
+                    </div>
+                  </div>
+                </p-panel>
+
+                <p-button type="submit" label="確認" styleClass="w-100" [loading]="loading"></p-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg order-3">
+        <div class="container">
+          <p-panel header="To:">
+            <div class="row flex-column space">
+              <div class="col">
+                <div class="row h-100">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex flex-column gap-2 w-80">
+                      <label for="networkTo">Network:</label>
+                      <input pInputText id="networkTo" formControlName="networkTo"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row h-100">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex flex-column gap-2 w-80">
+                      <label for="addressTo">Address:</label>
+                      <input pInputText id="addressTo" formControlName="addressTo"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-panel>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

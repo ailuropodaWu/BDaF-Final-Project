@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Llama Oracle Interaction</title>
+	<script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+</head>
+
+<body>
+	<h1>Llama Oracle Interaction</h1>
+	<button id="connectWallet">Connect Wallet</button>
+	<button id="sendTransaction" disabled>Send Transaction</button>
+	<div id="txStatus"></div>
+
+	<script>
+		const connectWalletButton = document.getElementById('connectWallet');
+		const sendTransactionButton = document.getElementById('sendTransaction');
+		const txStatus = document.getElementById('txStatus');
+		const oaocabi = [];
+		
+		let web3;
+		let accounts;
+		let oaocCircle;
+		
+
+		// MetaMask connection request
+		connectWalletButton.onclick = async () => {
+			if (window.ethereum) {
+				try {
+					// Request account access
+					accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+					web3 = new Web3(window.ethereum);
+					initializeContract();
+					sendTransactionButton.disabled = false;
+				} catch (error) {
+					console.error("User denied account access: ", error.message);
+				}
+			} else {
+				console.error("MetaMask is not installed");
+			}
+		};
+
+		function initializeContract() {
+			// const oaocabi = require('./build/contracts/OAOCircle.json'); // Your contract ABI
+			const OAOC_ADDRESS = "0xf59eBE57B47c51f8583264be7e21692fCB211AB4"; // Your contract address
+			oaocCircle = new web3.eth.Contract(oaocabi, OAOC_ADDRESS);
+		}
+
+	sendTransactionButton.onclick = async () => {
+		const instruction = "from testnet to mainnet from 0x1234 to 0x5678 1000";
+		try {
+			// Ensure the method name matches exactly with your contract method
+			const prompt = `1. from which network 2. to which network 3. from which address 4. to which address 5. amount. answer the questions about the transaction in only 5 words answer!\n${instruction}`;
+			const tx = await oaocCircle.methods.calculateAIResult(prompt).send({
+				from: accounts[0],
+				value: web3.utils.toWei("0.2", "ether")
+			});
+			txStatus.innerHTML = "Transaction sent! Waiting for result...";
+		} catch (error) {
+			console.error("Transaction failed", error);
+			txStatus.innerHTML = "Transaction failed!";
+		}
+	};
+
+	</script>
+</body>
+
+</html>

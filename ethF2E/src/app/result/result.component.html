@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-7 py-4">
+      @if (isSuccessful) {
+        <p-card header="Transaction Successful !">
+          <div class="row">
+            <div class="col-12 col-md-6"><img src="assets/success.svg" alt=""></div>
+            <div class="col-12 col-md-6 tw-break-words"><h3>Transaction Id:</h3> {{txId}}</div>
+          </div>
+        </p-card>
+      } @else {
+        <p-card header="Transaction Failed !">
+          <div class="row text-center">
+            <div class="col-12"><img src="assets/fail.svg" alt=""></div>
+            <!-- <div class="col-12 col-md-6 tw-break-words"><h3>Transaction Id:</h3> {{txId}}</div> -->
+          </div>
+        </p-card>
+      }
+    </div>
+  </div>
+</div>

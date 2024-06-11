@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'bootstrap/scss/bootstrap';
+
+// override primeNG styles
+.p-steps .p-steps-item .p-menuitem-link {
+  background: inherit !important;
+}
+
+// styles
+.space{
+  height: 45vh !important;
+}
+@media (min-width: 576px) {
+  .space{
+    height: 50vh !important;
+  }
+}
+@media (min-width: 768px) {
+  .space{
+    height: 60vh !important;
+  }
+}
+@media (min-width: 992px) {
+  .space{
+    height: 65vh !important;
+  }
+}
+
